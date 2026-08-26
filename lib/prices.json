@@ -1,0 +1,38 @@
+{
+    "_comentario": "Valores orientativos para serigrafía tradicional Argentina - Mayo 2026. Actualizar según criterio del negocio.",
+  
+    "costoPantalla": {
+      "_descripcion": "Costo fijo de preparación/quemado de pantalla por color. Se cobra una vez por trabajo, no por copia.",
+      "porColor": 8000
+    },
+  
+    "soportes": {
+      "_descripcion": "Multiplicador sobre el precio base de tinta/impresión según material. Tela es la base (1.0).",
+      "Tela":    { "multiplicador": 1.0 },
+      "Papel":   { "multiplicador": 0.8 },
+      "Carton":  { "multiplicador": 0.9 },
+      "Chapa":   { "multiplicador": 1.5 },
+      "Plastico":{ "multiplicador": 1.3 },
+      "DTF (Direct transfer to film)": { "multiplicador": 1.4 }
+    },
+  
+    "tinta": {
+      "_descripcion": "Costo base de tinta por color por copia, sobre superficie chica (hasta 100cm2). Se ajusta con factorTamanio.",
+      "costoPorColorPorCopia": 350
+    },
+  
+    "factoresTamanio": {
+      "_descripcion": "Factor multiplicador sobre el costo de tinta según la superficie del trabajo en cm2.",
+      "rangos": [
+        { "hastaCm2": 100,   "factor": 1.0,  "label": "Chico (hasta 10×10cm)" },
+        { "hastaCm2": 300,   "factor": 1.5,  "label": "Mediano (hasta ~17×17cm)" },
+        { "hastaCm2": 600,   "factor": 2.0,  "label": "Grande (hasta ~24×24cm)" },
+        { "hastaCm2": 99999, "factor": 2.8,  "label": "Extra grande (más de 600cm2)" }
+      ]
+    },
+  
+    "margenGanancia": {
+      "_descripcion": "Factor de margen aplicado al costo total. 1.4 = 40% de ganancia.",
+      "factor": 1.4
+    }
+  }

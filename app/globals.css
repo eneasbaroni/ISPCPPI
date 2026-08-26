@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom Colors */
+  --color-main: #121212;
+  --color-bg: #ffffff;
+  --color-greeny: #CAF291;
+  --color-pinky: #ffb3db;
+
+  --main-color: #121212;
+    --second-color: #a11619;
+    --third-color: #b33f4c;
+
+  /* Font Families */
+  --font-monument: var(--font-monument);
+  --font-apercu-pro: var(--font-apercu-pro);
+
+  --font-anton: "Anton", sans-serif;
+  --font-titilium: "Titillium Web", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@custom-variant notebook {
+  @media (width < 1280px) {
+      @slot;
+  }
+}
+
+@custom-variant tablet {
+  @media (width < 1024px) {
+      @slot;
+  }
+}
+
+
+@custom-variant mobile {
+  @media (width < 768px) {
+      @slot;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body  {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+button a {
+    font-family: var(--font-anton);    
+    color: var(--main-color);
+}
+
+h2 {
+    font-size: calc(1rem + 3vw);
+}
+
+/* p, li {
+    font-size: calc(1rem + 0.5vw);
+} */
+
+
+.divContainer {
+    /* ver margin top en otras querys */
+    margin-top: calc(30px + 8px + 1px);
+    /* ver altura en otras querys */
+    min-height: calc(100vh - 39px - 229px);
+    transition: all 0.5s ease-in-out;
+}
+
+.sectionContainer {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* gap: 1rem;  */
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 800ms ease-out;
+}
+
+.dotted {
+    background-image: radial-gradient(var(--main-color) 10%, transparent 10%), radial-gradient(var(--main-color) 10%, transparent 10%);
+    background-color: var(--main-bg);
+    background-position: 0 0, 25px 25px;
+    background-size: 50px 50px;
+}
+
+.stripped {
+    color: var(--main-bg);
+    background: repeating-linear-gradient(45deg,
+            var(--main-bg),
+            var(--main-bg) 15px,
+            var(--main-color) 15px,
+            var(--main-color) 20px);
+}
+
+/* Media Querys */
+/* @media screen and (max-width: 768px) {
+    p, li {
+        font-size: calc(0.5rem + 1.5vw);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    p, li {
+        font-size: calc(0.5rem + 2vw);
+    }
+} */
