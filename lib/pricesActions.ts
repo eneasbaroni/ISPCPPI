@@ -5,6 +5,7 @@ import Prices from "@/app/api/DAO/models/prices.models";
 import Presupuesto from "@/app/api/DAO/models/presupuesto.models";
 import { revalidatePath } from "next/cache";
 import { PricesConfig } from "@/lib/budgetCalculation";
+import { calcularSugerenciasPrecios, SugerenciasPrecios } from "@/lib/priceSuggestions";
 
 // ── Tipos ─────────────────────────────────────────────────────────────────────
 
@@ -45,6 +46,10 @@ export async function updatePrices(data: PricesConfig): Promise<void> {
   await connectMongoDB();
   await Prices.findOneAndUpdate({}, { $set: data }, { runValidators: true });
   revalidatePath("/admin");
+}
+
+export async function getSugerenciasPrecios(): Promise<SugerenciasPrecios> {
+  return calcularSugerenciasPrecios();
 }
 
 // ── Presupuestos ──────────────────────────────────────────────────────────────

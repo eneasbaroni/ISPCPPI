@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // lib/priceSuggestions.ts lee el CSV con fs en runtime; sin esto no se incluye en el deploy
+  outputFileTracingIncludes: {
+    "/admin/prices": ["./lib/data/**/*"],
+  },
 };
 
 export default nextConfig;

@@ -63,7 +63,7 @@ export interface PricesConfig {
   /**
    * Calcula el presupuesto total.
    * @param datos  - Datos del formulario
-   * @param prices - Configuración de precios obtenida desde la DB (GET /api/prices)
+   * @param prices - Configuración de precios obtenida desde la DB (ver lib/pricesActions.ts)
    */
   export function budgetCalculation(
     datos: DatosFormulario,

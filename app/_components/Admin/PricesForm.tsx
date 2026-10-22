@@ -3,12 +3,13 @@
 import Grill from "@/app/(index)/_components/grill/Grill";
 import { PricesConfig } from "@/lib/budgetCalculation";
 import { updatePrices } from "@/lib/pricesActions";
+import { SugerenciasPrecios } from "@/lib/priceSuggestions";
 import Link from "next/link";
 import { useState } from "react";
 import LogoutButton from "./LogoutButton";
 
 
-export default function PricesForm({ prices }: { prices: PricesConfig }) {
+export default function PricesForm({ prices, sugerencias }: { prices: PricesConfig; sugerencias?: SugerenciasPrecios }) {
   const [form, setForm] = useState<PricesConfig>(structuredClone(prices));
   const [editing, setEditing] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -59,6 +60,32 @@ export default function PricesForm({ prices }: { prices: PricesConfig }) {
 
   const data = editing ? form : prices;
 
+  const Sugerencia = ({
+    agregado,
+    onUsar,
+  }: {
+    agregado?: { valor: number; metodo: "media" | "mediana"; cotizaciones: number };
+    onUsar: (valor: number) => void;
+  }) => {
+    if (!agregado) return null;
+    return (
+      <div className="flex items-center gap-2 mt-1">
+        <span className="text-xs! text-gray-400">
+          Sugerido: {fmt(agregado.valor)} ({agregado.metodo} de {agregado.cotizaciones} cotizaciones de proveedores)
+        </span>
+        {editing && (
+          <button
+            type="button"
+            onClick={() => onUsar(agregado.valor)}
+            className="text-xs! underline text-main hover:text-pinky cursor-pointer"
+          >
+            Usar sugerido
+          </button>
+        )}
+      </div>
+    );
+  };
+
   return (
     <main className="px-40 tablet:px-20 mobile:px-10 mobile:pt-12 flex flex-col items-center mt-[6vw]">
 
@@ -106,6 +133,7 @@ export default function PricesForm({ prices }: { prices: PricesConfig }) {
               <p className="text-lg! mobile:text-base! font-bold">{fmt(data.costoPantallaPorColor)}</p>
             )}
             <span className="text-xs! text-gray-500">Costo fijo por color, por trabajo</span>
+            <Sugerencia agregado={sugerencias?.costoPantallaPorColor} onUsar={(v) => setBase("costoPantallaPorColor", v)} />
           </div>
 
           <div className="flex-1 flex flex-col gap-1 mobile:gap-0 mobile:border-b mobile:border-main/20 mobile:">
@@ -118,6 +146,7 @@ export default function PricesForm({ prices }: { prices: PricesConfig }) {
               <p className="text-lg! mobile:text-base! font-bold">{fmt(data.costoPorColorPorCopia)}</p>
             )}
             <span className="text-xs! text-gray-500">Base sobre superficie ≤100 cm²</span>
+            <Sugerencia agregado={sugerencias?.costoPorColorPorCopia} onUsar={(v) => setBase("costoPorColorPorCopia", v)} />
           </div>
 
           <div className="flex-1 flex flex-col gap-1 mobile:gap-0">
@@ -143,33 +172,57 @@ export default function PricesForm({ prices }: { prices: PricesConfig }) {
       {/* Soportes */}
       <section className="mt-4 w-full flex flex-col gap-0 border bg-white p-4 shadow-md">
         <h2 className="text-lg! font-bold uppercase">Multiplicadores por soporte</h2>
-        <p className="text-xs! text-gray-500">Tela es la base (×1.0).</p>
+        <p className="text-xs! text-gray-500">
+          Tela es la base (×1.0). La columna &quot;Sugerido&quot; surge de promediar (o, si hay mucha dispersión entre proveedores, de la mediana de) las cotizaciones de insumos relevadas para cada soporte.
+        </p>
         <table className="w-full mt-2">
           <thead className="border-b border-main/20">
             <tr>
               <th className="text-left text-gray-500! uppercase font-normal py-3 px-2 mobile:text-xs">Material</th>
               <th className="text-left text-gray-500! uppercase font-normal py-3 px-2 mobile:text-xs">Multiplicador</th>
+              <th className="text-left text-gray-500! uppercase font-normal py-3 px-2 mobile:text-xs">Sugerido (proveedores)</th>
             </tr>
           </thead>
           <tbody>
-            {data.soportes.map((s, i) => (
-              <tr key={s.nombre} className="border-b border-main/20 last:border-b-0">
-                <td className="text-left p-2 mobile:text-xs">{s.nombre}</td>
-                <td className="p-2">
-                  {editing ? (
-                    <input
-                      type="number"
-                      step="0.1"
-                      value={form.soportes[i].multiplicador}
-                      onChange={(e) => setSoporte(i, Number(e.target.value))}
-                      className="w-28 mobile:w-20"
-                    />
-                  ) : (
-                    <span className="mobile:text-xs font-medium">×{s.multiplicador.toFixed(1)}</span>
-                  )}
-                </td>
-              </tr>
-            ))}
+            {data.soportes.map((s, i) => {
+              const sug = sugerencias?.soportes[s.nombre];
+              return (
+                <tr key={s.nombre} className="border-b border-main/20 last:border-b-0">
+                  <td className="text-left p-2 mobile:text-xs">{s.nombre}</td>
+                  <td className="p-2">
+                    {editing ? (
+                      <input
+                        type="number"
+                        step="0.1"
+                        value={form.soportes[i].multiplicador}
+                        onChange={(e) => setSoporte(i, Number(e.target.value))}
+                        className="w-28 mobile:w-20"
+                      />
+                    ) : (
+                      <span className="mobile:text-xs font-medium">×{s.multiplicador.toFixed(1)}</span>
+                    )}
+                  </td>
+                  <td className="p-2">
+                    {sug ? (
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs! text-gray-400">×{sug.multiplicadorSugerido.toFixed(2)}</span>
+                        {editing && (
+                          <button
+                            type="button"
+                            onClick={() => setSoporte(i, sug.multiplicadorSugerido)}
+                            className="text-xs! underline text-main hover:text-pinky cursor-pointer"
+                          >
+                            Usar
+                          </button>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-xs! text-gray-300">—</span>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </section>

@@ -1,0 +1,37 @@
+id_registro_original,proveedor,insumo,categoria,parametro_relacionado,unidad_medida,precio_original,moneda_original,tipo_cambio_aplicado,precio_ars,fecha_cotizacion,contacto_email,stock_disponible,condicion_pago
+1,Serigrafía Insumos SRL,Emulsión fotosensible,Insumo de pantalla,costoPantallaPorColor,litro,10600,ARS,,10600,2026-08-27,ventas@serigrafiainsumos.com.ar,15,Contado
+2,Serigrafía Insumos SRL,Marco de aluminio 30x40,Insumo de pantalla,costoPantallaPorColor,unidad,15400,ARS,,15400,2026-08-27,ventas@serigrafiainsumos.com.ar,8,Contado
+3,Serigrafía Insumos SRL,Revelador para pantallas,Insumo de pantalla,costoPantallaPorColor,litro,7750,ARS,,7750,2026-08-27,ventas@serigrafiainsumos.com.ar,20,Contado
+4,TextilCo Distribuidora,Tela de algodón para remeras,Soporte,multiplicador_soporte:Tela,metro,4250,ARS,,4250,2026-08-27,pedidos@textilco.com.ar,N/D,30 días
+6,TextilCo Distribuidora,Tinta textil al agua,Tinta,costoPorColorPorCopia,litro,12250,ARS,,12250,2026-08-27,pedidos@textilco.com.ar,N/D,30 días
+7,Grafiart Materiales,Papel transfer A4,Soporte,multiplicador_soporte:Papel,resma,19000,ARS,,19000,2026-08-20,info@grafiart.com.ar,6,Contado
+8,Grafiart Materiales,Cartón microcorrugado,Soporte,multiplicador_soporte:Carton,m2,2300,ARS,,2300,2026-08-20,info@grafiart.com.ar,40,Contado
+9,Grafiart Materiales,Chapa galvanizada calibre 24,Soporte,multiplicador_soporte:Chapa,m2,11750,ARS,,11750,2026-08-20,info@grafiart.com.ar,10,Contado
+10,Grafiart Materiales,Lámina de PVC rígido,Soporte,multiplicador_soporte:Plastico,m2,8900,ARS,,8900,2026-08-20,info@grafiart.com.ar,18,Contado
+11,DTF Print Supply,Film DTF,Soporte,multiplicador_soporte:DTF,rollo,45,USD,1520,68400,2026-08-29,hola@dtfprint.com.ar,25,Contado
+12,DTF Print Supply,Polvo adhesivo DTF (hot melt),Insumo DTF,multiplicador_soporte:DTF,kg,38,USD,1520,57760,2026-08-29,hola@dtfprint.com.ar,14,Contado
+13,Punto Serigráfico,Tinta plastisol,Tinta,costoPorColorPorCopia,kg,9500,ARS,,9500,2026-08-29,N/D,N/D,Contado
+14,Punto Serigráfico,Emulsión fotosensible,Insumo de pantalla,costoPantallaPorColor,litro,10100,ARS,,10100,2026-08-29,N/D,N/D,Contado
+15,Punto Serigráfico,Solvente / removedor de tinta,Tinta,costoPorColorPorCopia,litro,5350,ARS,,5350,2026-08-29,N/D,N/D,Contado
+16,Serigrafía Insumos SRL,Tinta plastisol,Tinta,costoPorColorPorCopia,kg,9950,ARS,,9950,2026-08-27,ventas@serigrafiainsumos.com.ar,22,Contado
+17,Serigrafía Insumos SRL,Solvente / removedor de tinta,Tinta,costoPorColorPorCopia,litro,5200,ARS,,5200,2026-08-27,ventas@serigrafiainsumos.com.ar,17,Contado
+18,TextilCo Distribuidora,Cartón microcorrugado,Soporte,multiplicador_soporte:Carton,m2,2400,ARS,,2400,2026-08-27,pedidos@textilco.com.ar,N/D,30 días
+19,Grafiart Materiales,Marco de aluminio 30x40,Insumo de pantalla,costoPantallaPorColor,unidad,14750,ARS,,14750,2026-08-20,info@grafiart.com.ar,5,Contado
+20,Grafiart Materiales,Revelador para pantallas,Insumo de pantalla,costoPantallaPorColor,litro,8050,ARS,,8050,2026-08-20,info@grafiart.com.ar,9,Contado
+21,DTF Print Supply,Lámina de PVC rígido,Soporte,multiplicador_soporte:Plastico,m2,54,USD,1520,82080,2026-08-29,hola@dtfprint.com.ar,7,Contado
+22,Punto Serigráfico,Papel transfer A4,Soporte,multiplicador_soporte:Papel,resma,18500,ARS,,18500,2026-08-29,N/D,N/D,Contado
+24,TextilCo Distribuidora,Chapa galvanizada calibre 24,Soporte,multiplicador_soporte:Chapa,m2,12050,ARS,,12050,2026-08-27,pedidos@textilco.com.ar,N/D,30 días
+25,Grafiart Materiales,Film DTF,Soporte,multiplicador_soporte:DTF,rollo,44,USD,1520,66880,2026-08-20,info@grafiart.com.ar,11,Contado
+26,Punto Serigráfico,Tela de algodón para remeras,Soporte,multiplicador_soporte:Tela,metro,4100,ARS,,4100,2026-08-29,N/D,N/D,Contado
+27,Serigrafía Insumos SRL,Cartón microcorrugado,Soporte,multiplicador_soporte:Carton,m2,2250,ARS,,2250,2026-08-27,ventas@serigrafiainsumos.com.ar,28,Contado
+28,DTF Print Supply,Tinta plastisol,Tinta,costoPorColorPorCopia,kg,29,USD,1520,44080,2026-08-29,hola@dtfprint.com.ar,9,Contado
+29,TextilCo Distribuidora,Papel transfer A4,Soporte,multiplicador_soporte:Papel,resma,19500,ARS,,19500,2026-08-27,pedidos@textilco.com.ar,N/D,30 días
+30,Grafiart Materiales,Tinta textil al agua,Tinta,costoPorColorPorCopia,litro,12600,ARS,,12600,2026-08-20,info@grafiart.com.ar,6,Contado
+31,Punto Serigráfico,Chapa galvanizada calibre 24,Soporte,multiplicador_soporte:Chapa,m2,11400,ARS,,11400,2026-08-29,N/D,N/D,Contado
+33,TextilCo Distribuidora,Lámina de PVC rígido,Soporte,multiplicador_soporte:Plastico,m2,9100,ARS,,9100,2026-08-27,pedidos@textilco.com.ar,N/D,30 días
+34,Grafiart Materiales,Solvente / removedor de tinta,Tinta,costoPorColorPorCopia,litro,5500,ARS,,5500,2026-08-20,info@grafiart.com.ar,13,Contado
+36,Punto Serigráfico,Revelador para pantallas,Insumo de pantalla,costoPantallaPorColor,litro,7500,ARS,,7500,2026-08-29,N/D,N/D,Contado
+37,Serigrafía Insumos SRL,Film DTF,Soporte,multiplicador_soporte:DTF,rollo,47,USD,1520,71440,2026-08-27,ventas@serigrafiainsumos.com.ar,19,Contado
+38,TextilCo Distribuidora,Tinta plastisol,Tinta,costoPorColorPorCopia,kg,9800,ARS,,9800,2026-08-27,pedidos@textilco.com.ar,N/D,30 días
+39,Grafiart Materiales,Emulsión fotosensible,Insumo de pantalla,costoPantallaPorColor,litro,10400,ARS,,10400,2026-08-20,info@grafiart.com.ar,11,Contado
+40,Punto Serigráfico,Marco de aluminio 30x40,Insumo de pantalla,costoPantallaPorColor,unidad,15100,ARS,,15100,2026-08-29,N/D,N/D,Contado
