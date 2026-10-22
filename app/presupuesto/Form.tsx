@@ -42,8 +42,8 @@ const Form = () => {
       return;
     }
 
-    if (selectedFile.size > 10_000_000) {
-      setFileError("El archivo es demasiado grande (máx. 10 MB)");
+    if (selectedFile.size > 4_000_000) {
+      setFileError("El archivo es demasiado grande (máx. 4 MB)");
       e.target.value = "";
       setFile(null);
       return;
@@ -217,7 +217,7 @@ const Form = () => {
         <label className="fileSelectorLabel" htmlFor="file">
           {file
             ? `Imagen de referencia: ${file.name}`
-            : "ADJUNTE UNA IMAGEN DE REFERENCIA - MAX 10MB"}
+            : "ADJUNTE UNA IMAGEN DE REFERENCIA - MAX 4MB"}
         </label>
         <input
           className="fileSelector"
